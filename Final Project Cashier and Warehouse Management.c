@@ -665,7 +665,7 @@ int login(int try) {
     if(strcmp(username, "admin") != 0 || strcmp(password, "admin") != 0) {
         if(try == 0) return 0;
         cursorPositionCenter(20, 66);
-        printf(RED "Invalid username or password! Please try again (%d more tries/try)" RESET "\n", try);
+        printf(RED "Tidak Valid (%d more tries/try)" RESET "\n", try);
         try--;
         cursorPositionCenter(22, 34);
         system("pause");
