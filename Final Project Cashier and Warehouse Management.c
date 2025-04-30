@@ -2519,56 +2519,7 @@ void printExitChoice(int option) {
 }
 
 // Opsi untuk menutup aplikasi
-int exitProgram() {
-    int option = 1;
-    int ch;
-    
-    cursorPositionCenter(22, 46);
-    printf("Are you sure you want to quit the application?\n");
-    while (1) {
-        printExitChoice(option);
 
-        ch = _getch();
-        if (ch == 0 || ch == 224) {
-            ch = _getch();
-            switch (ch) {
-                case 72: // Up
-                    if (option > 1) option--;
-                    printf(CLEAR_LINE CLEAR_LINE);
-                    break;
-                case 80: // Down
-                    if (option < 2) option++;
-                    printf(CLEAR_LINE CLEAR_LINE);
-                    break;
-                default:
-                    break;
-            }
-        } else if (ch == 13) {
-            // Enter
-            if(option == 1) {
-                system("cls");
-
-                char exit1[16] = "Exiting the app";
-                char exit2[31] = "Thankyou for using this app :)";
-                cursorPositionCenter(14, 14);
-                printf(BOLD);
-                for(int i = 0; i < strlen(exit1); i++) {
-                    Sleep(10);
-                    printf("%c", exit1[i]);
-                }
-                Sleep(200);
-                cursorPositionCenter(15, 30);
-                for(int i = 0; i < strlen(exit2); i++) {
-                    Sleep(10);
-                    printf("%c", exit2[i]);
-                }
-                printf(RESET);
-                Sleep(2500);
-                return 0;
-            } else return 1;
-        }
-    }
-}
 
 int main() {
     clearHash();
